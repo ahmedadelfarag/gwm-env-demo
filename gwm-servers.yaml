@@ -5,8 +5,8 @@
   vars:
 
         # Your GCP Project ID 
-        project: PROJECT_ID
-        #Do not forget to Enable Compute Engine API
+        project: d22-2022-03-technicaldemo
+        # Do not forget to Enable Compute Engine API
 
         # ---- Default Region and Zone ----
         
@@ -26,29 +26,29 @@
         windows_image: projects/windows-cloud/global/images/windows-server-2016-dc-v20220314
         
 
-        # ---GWN Platform server---
+        # ---GWM Platform server---
         # Machine type for GWM Platform Server
-        ps_machine_type: e2-standard-4
+        ps_machine_type: e2-standard-2
         # SSD disk size for GWM Platform Server
-        ps_disk_size: 200
+        ps_disk_size: 50
         
         # ---GWM MySQL Database---
         # Machine type for GWM MySQL Database
-        mdb_machine_type: e2-standard-16
+        mdb_machine_type: e2-standard-2
         # Your SSD disk size for GWM MySQL Database
         mdb_disk_size: 50
 
         # ---GWM CouchDB Database---
         #Machine type for GWM CouchDB Database
-        cdb_machine_type: e2-standard-16
+        cdb_machine_type: e2-standard-2
         # SSD disk size for GWM CouchDB Database
         cdb_disk_size: 50
 
         # ---GWM node server---
         #Machine type for GWM noder servers
-        node_machine_type: e2-highmem-4
+        node_machine_type: e2-standard-2
         # Your SSD disk size for GWM noder servers
-        node_disk_size: 200
+        node_disk_size: 50
         # GMW node server ID
         node_id: 1
 
@@ -195,7 +195,7 @@
     - name: creating GWM platform server instance
       gcp_compute_instance:
           name: "gwm-ps-{{ project }}"
-          machine_type: e"{{ ps_machine_type }}"
+          machine_type: "{{ ps_machine_type }}"
           disks:
             - auto_delete: true
               boot: true
